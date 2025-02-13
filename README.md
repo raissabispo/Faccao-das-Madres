@@ -1,4 +1,4 @@
-#  Facção das Madres (FDM)
+#  Facção das Madres (FAME)
 
 ### 🎯 Projeto: Baseado em Fatos Reais
 
