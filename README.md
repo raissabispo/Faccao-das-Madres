@@ -2,6 +2,8 @@
 
 ### 🎯 Projeto: Baseado em Fatos Reais
 
+## Link do Figma: https://www.figma.com/design/HRk0DWcuiD2mHG9JUpS18U/Untitled?node-id=0-1&t=FHdEL6GUPcvpC1f7-1
+
 ### 💻 Grupo 3 - TCC 
 
 ## 👋 Boas-vindas ao FDM!
