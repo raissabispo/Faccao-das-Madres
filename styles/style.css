@@ -1,0 +1,125 @@
+:root{
+    --cor-fundo: #E0DBC6;
+    --cor-botao-costureira: #FFE492;
+    --cor-botao-contratante: #BA746A;
+    --cor-titulo: #BA746A;
+    --cor-botao-inscrever: #4F9CF9;
+    --cor-texto-botao-costureira: #1D1D1D;
+    --cor-texto: #fff;
+}
+
+body{
+    background-color: var(--cor-fundo);
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.home-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin-right: 250px;
+}
+
+.home-login .logo{
+    width: 60%;
+}
+
+.home-login .imagemMaquina{
+    object-fit: cover;
+    width: 50%; 
+    height: auto; 
+    margin: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 75vh;
+    background-color: var(--cor-texto);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 400px; 
+    max-height: 600px; 
+    margin: auto; 
+    border-radius: 8px;
+    margin-right: 180px;
+}
+
+.forms {
+    margin: 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.texto {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+label {
+    margin: 10px 0 5px 0;
+}
+
+.titulo-form{
+    color: var(--cor-titulo);
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--cor-titulo);
+    color: var(--cor-texto);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.senha-opcoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.senha-opcoes input[type="checkbox"] {
+    margin-right: 5px; 
+}
+
+.senha-opcoes label {
+    margin-right: auto; 
+}
+
+
+.senha-opcoes .esqueceu {
+    margin: 40px;
+    cursor: pointer;
+    text-decoration:underline;
+    
+}

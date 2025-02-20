@@ -1,0 +1,88 @@
+:root{
+    --cor-fundo: #E0DBC6;
+    --cor-botao-costureira: #FFE492;
+    --cor-botao-contratante: #BA746A;
+    --cor-titulo: #BA746A;
+    --cor-botao-inscrever: #4F9CF9;
+    --cor-texto-botao-costureira: #1D1D1D;
+    --cor-texto: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    overflow-y: scroll;
+}
+
+body{
+    background-color: var(--cor-fundo);
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+    text-align: center;
+}
+
+.logo{
+    width: 172px;
+    object-fit: cover;
+}
+
+.menu a{
+    margin: 20px;
+    text-decoration: none;
+    color: var(--cor-titulo);
+}
+
+.menu .botao-costureira{
+    background-color: var(--cor-botao-costureira);
+    width: 200px;
+    height: 40px;
+    color: var(--cor-texto-botao-costureira);
+    font-weight: 700;
+    padding: 6px;
+}
+
+.menu .botao-contratante{
+    background-color: var(--cor-botao-contratante);
+    width: 200px;
+    height: 40px;
+    color: var(--cor-texto);
+    font-weight: 700;
+    padding: 6px;
+}
+
+.apresentacao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.apresentacao .imagem-home {
+    width: 50%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.apresentacao .texto-home {
+    text-align: center;
+}
+
+.apresentacao .titulo-home{
+    font-size: 60px;
+    color: var(--cor-titulo);
+    margin-bottom: 20px;
+}
+
+.apresentacao .descricao-home{
+    font-size: 20px;
+    color: var(--cor-titulo);
+}
