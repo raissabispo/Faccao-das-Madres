@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap');
 :root{
     --cor-fundo: #E0DBC6;
     --cor-botao-costureira: #FFE492;
@@ -6,18 +7,27 @@
     --cor-botao-inscrever: #4F9CF9;
     --cor-texto-botao-costureira: #1D1D1D;
     --cor-texto: #fff;
+    --cor-fundo-login: #E0DBC6
+    
 }
 
 body{
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-texto);
+    font-family: "Ysabeau Infant", serif;
+    font-size: 16px
+    
 }
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
-    padding: 20px;
+    height: 90vh;
+    width: 90vw; 
+    margin: 30px auto; 
+    background-color: var(--cor-fundo);
+    border-radius: 25px;
 }
 
 .home-login {
@@ -25,8 +35,9 @@ body{
     flex-direction: column;
     align-items: center;
     flex: 1;
-    margin-right: 250px;
+    margin-left: 130px
 }
+
 
 .home-login .logo{
     width: 60%;
@@ -46,12 +57,12 @@ body{
     flex: 1;
     height: 75vh;
     background-color: var(--cor-texto);
-    padding: 20px;
+    padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     max-width: 400px; 
     max-height: 600px; 
     margin: auto; 
-    border-radius: 8px;
+    border-radius: 15px;
     margin-right: 180px;
 }
 
@@ -59,6 +70,7 @@ body{
     margin: 45px;
     display: flex;
     flex-direction: column;
+    font-weight: 600;
 }
 
 .titulo-form {
@@ -69,12 +81,8 @@ body{
 .texto {
     margin-bottom: 20px;
     text-align: center;
-    font-weight: 600;
 }
 
-label {
-    margin: 10px 0 5px 0;
-}
 
 .titulo-form{
     color: var(--cor-titulo);
@@ -90,13 +98,15 @@ input[type="text"], input[type="password"] {
 }
 
 button {
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: none;
     background-color: var(--cor-titulo);
     color: var(--cor-texto);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 20px;
+    margin: 20px
 }
 
 
@@ -105,7 +115,6 @@ button {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-top: 16px;
 }
 
 .senha-opcoes input[type="checkbox"] {
@@ -118,8 +127,27 @@ button {
 
 
 .senha-opcoes .esqueceu {
-    margin: 40px;
+    margin: 20px;
     cursor: pointer;
     text-decoration:underline;
     
 }
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; 
+        justify-content: center;
+        height: 700px;
+        padding: 10px ;
+    }
+
+    .home-login {
+        display:none;
+    }
+
+    .login-form {
+        max-width: 300px;
+        max-height: 900px;
+        margin-right: 0;
+    }
+}
+
