@@ -17,8 +17,7 @@ function enviar(event) {
     }
   
     alert('Login realizado com sucesso!'); 
-     // Aqui eu vou  redirecionar para a tela inicial quando estiver pronta!:
-    // window.location.href = "telaInicial.html";
+     window.location.href = "/telas/telaInicial.html";
     
 
     return true;

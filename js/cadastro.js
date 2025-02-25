@@ -17,7 +17,7 @@ function enviar(event) {
     }
   
     alert('Cadastro realizado com sucesso!'); 
-    window.location.href = "login.html";
+    window.location.href = "/telas/telaInicial.html";
     
 
     return true;
