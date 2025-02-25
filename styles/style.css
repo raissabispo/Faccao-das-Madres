@@ -126,11 +126,19 @@ button {
 }
 
 
-.senha-opcoes .esqueceu {
+.senha-opcoes .esqueceu, .senha-opcoes .login{
     margin: 20px;
     cursor: pointer;
     text-decoration:underline;
     
+    
+}
+
+.senha-opcoes .login{
+    text-decoration: none;
+    color: var(--cor-texto-botao-costureira);
+    text-align: center;
+    text-decoration: underline;
 }
 @media (max-width: 1024px) {
     .container {
