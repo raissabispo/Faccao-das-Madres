@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle - Costureira</title>
+    <link rel="stylesheet" href="/styles/painel_chefe.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/imagens/logo.png" alt="Logo" id="logo-img">
+        </div>
+        <div class="welcome">
+            <h2>Bem-vinda de volta, Maria.</h2>
+            <p id="date"></p>
+            <p>Confira o painel de controle dos seus funcionários.</p>
+        </div>
+        <div class="icons">
+            <a href="tarefas.html"><img src="/imagens/tarefa.png" alt="Tarefas"></a>
+            <a href="relatorio.html"><img src="/imagens/relatorio.png" alt="Relatório"></a>
+        </div>
+    </header>
+    <main>
+        <div class="kanban">
+            <div class="column">
+                <h3>Pendente</h3>
+                <div class="card">Tarefa 1</div>
+                <div class="card">Tarefa 2</div>
+            </div>
+            <div class="column">
+                <h3>Em Andamento</h3>
+                <div class="card">Tarefa 3</div>
+            </div>
+            <div class="column">
+                <h3>Finalizada</h3>
+                <div class="card">Tarefa 4</div>
+                <div class="card">Tarefa 5</div>
+            </div>
+        </div>
+        <div class="progress">
+            <h3>Progresso do Dia:</h3>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="progress-percent">70%</p>
+        </div>
+        <div class="Avisos">
+            <h3><img src="/imagens/avisos.png" alt="Avisos">Avisos:</h3>
+            <p>Falta x dias para o prazo das calças da loja xxx acabar!!</p>
+            <p>Mensagem da costureira: Bom dia, Maria! Verifique se...</p>
+        </div>
+    </main>
+    <script src="/js/painel_chefe.js"></script>
+</body>
+</html>

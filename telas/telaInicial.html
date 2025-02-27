@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:wght@200;400;500&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
-    
 </head>
 <body>
     <header>
@@ -27,25 +26,34 @@
             <img src="/imagens/imagem1.png" alt="Máquina de Costura"> 
         </div>
         <nav class="menu">
-            <div class="menu-item">
-                <img src="/imagens/fi-rs-home.png" alt="Ícone Painel">
-                <span>Painel</span>
-            </div>
-            <div class="menu-item">
-                <img src="/imagens/fi-rs-file-add.png" alt="Ícone Tarefas">
-                <span>Tarefas</span>
-            </div>
-            <div class="menu-item">
-                <img src="/imagens/fi-rs-signal-alt-1.png" alt="Ícone Relatório">
-                <span>Relatório</span>
-            </div>
-            <div class="menu-item">
-                <img src="/imagens/fi-rs-settings.png" alt="Ícone Configurações">
-                <span>Configurações</span>
-            </div>
+            <ul>
+                <li>
+                    <a href="painel_chefe.html" class="menu-item" style="cursor: pointer;">
+                        <img src="/imagens/fi-rs-home.png" alt="Ícone Painel">
+                        <span>Painel</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tarefas.html" class="menu-item" style="cursor: pointer;">
+                        <img src="/imagens/tarefa.png" alt="Ícone Tarefas">
+                        <span>Tarefas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorio.html" class="menu-item" style="cursor: pointer;">
+                        <img src="/imagens/relatorio.png" alt="Ícone Relatório">
+                        <span>Relatório</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item" style="cursor: pointer;">
+                        <img src="/imagens/fi-rs-settings.png" alt="Ícone Configurações">
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
         </nav>
-        
     </main>
-</div>
+    <script src="script/telaInicial.js"></script>
 </body>
 </html>

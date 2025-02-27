@@ -1,0 +1,133 @@
+body {
+    font-family: sans-serif;
+    background-color: #E0DBC6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #E0DBC6;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    background-color: #E0DBC6;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.welcome {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icons {
+    margin-left: -20px; /* Move os ícones para a esquerda */
+}
+
+.icons img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.kanban {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 1;
+    margin: 10px;
+    background-color: #E2A89C;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.column h3 {
+    color: white;
+}
+
+.card {
+    background-color: #FAECE2;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.progress {
+    background-color: #E2A89C;
+    border-radius: 5px;
+    padding: 20px;
+    width: 45%;
+}
+
+.progress h3, .progress p {
+    color: white;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    background-color: green;
+    height: 100%;
+    width: 70%;
+    border-radius: 10px;
+}
+
+.avisos {
+    background-color: #E2A89C;
+    border-radius: 5px;
+    padding: 20px;
+    width: 45%;
+}
+
+.avisos h3 {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.avisos h3 img {
+    margin-right: 10px;
+}
+
+.avisos p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .kanban, .progress, .avisos {
+        width: 100%;
+    }
+}
