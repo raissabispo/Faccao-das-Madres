@@ -23,19 +23,20 @@
     </header>
     <main>
         <div class="kanban">
-            <div class="column">
+            <div class="column" data-status="pendente">
                 <h3>Pendente</h3>
-                <div class="card">Tarefa 1</div>
-                <div class="card">Tarefa 2</div>
+                <div class="card" data-task-id="1" draggable="true">Tarefa 1</div>
+                <div class="card" data-task-id="2" draggable="true">Tarefa 2</div>
+                <div class="add-task">+</div>
             </div>
-            <div class="column">
+            <div class="column" data-status="em-andamento">
                 <h3>Em Andamento</h3>
-                <div class="card">Tarefa 3</div>
+                <div class="card" data-task-id="3" draggable="true">Tarefa 3</div>
             </div>
-            <div class="column">
+            <div class="column" data-status="finalizada">
                 <h3>Finalizada</h3>
-                <div class="card">Tarefa 4</div>
-                <div class="card">Tarefa 5</div>
+                <div class="card" data-task-id="4" draggable="true">Tarefa 4</div>
+                <div class="card" data-task-id="5" draggable="true">Tarefa 5</div>
             </div>
         </div>
         <div class="progress">
@@ -45,12 +46,28 @@
             </div>
             <p class="progress-percent">70%</p>
         </div>
-        <div class="Avisos">
+        <div class="avisos">
             <h3><img src="/imagens/avisos.png" alt="Avisos">Avisos:</h3>
             <p>Falta x dias para o prazo das calças da loja xxx acabar!!</p>
             <p>Mensagem da costureira: Bom dia, Maria! Verifique se...</p>
         </div>
     </main>
+    <div class="task-modal" id="task-modal">
+        <div class="task-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="task-details"></div>
+            <form id="task-form">
+                <label for="quantidade">Quantidade de Peças:</label>
+                <input type="number" id="quantidade" name="quantidade">
+                <label for="costureira">Costureira:</label>
+                <input type="text" id="costureira" name="costureira">
+                <label for="entrega">Data de Entrega:</label>
+                <input type="date" id="entrega" name="entrega">
+                <button type="submit">Salvar</button>
+            </form>
+            <button class="delete-task">Excluir Tarefa</button>
+        </div>
+    </div>
     <script src="/js/painel_chefe.js"></script>
 </body>
 </html>
