@@ -5,6 +5,7 @@ body {
     padding: 0;
 }
 
+
 header {
     background-color: #E0DBC6;
     padding: 20px;
@@ -13,6 +14,7 @@ header {
     align-items: center;
 }
 
+
 .logo {
     background-color: #E0DBC6;
     padding: 15px;
@@ -20,15 +22,18 @@ header {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 .logo img {
     width: 100px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
+
 .logo img:hover {
     transform: scale(1.1);
 }
+
 
 .welcome {
     text-align: center;
@@ -38,21 +43,46 @@ header {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+
 .icons {
-    margin-left: -20px; /* Move os ícones para a esquerda */
+    margin-left: -20px;
 }
+
 
 .icons img {
     width: 30px;
     margin-left: 10px;
 }
 
-main {
+
+.container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
+
+
+.croqui {
+    width: 20%;
+}
+
+
+.croqui img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+main {
+    width: 60%;
+}
+
 
 .kanban {
     display: flex;
@@ -60,6 +90,7 @@ main {
     max-width: 800px;
     margin-bottom: 20px;
 }
+
 
 .column {
     flex: 1;
@@ -69,9 +100,11 @@ main {
     padding: 10px;
 }
 
+
 .column h3 {
     color: white;
 }
+
 
 .card {
     background-color: #FAECE2;
@@ -80,53 +113,70 @@ main {
     border-radius: 3px;
 }
 
-.progress {
-    background-color: #E2A89C;
-    border-radius: 5px;
-    padding: 20px;
-    width: 45%;
+
+.progress-avisos-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.progress h3, .progress p {
-    color: white;
+
+.progress, .avisos {
+    background-color: #FAECE2;
+    border-radius: 8px;
+    padding: 25px;
+    width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
+
+
+.progress h3, .avisos h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
 
 .progress-bar {
     background-color: #e0e0e0;
-    height: 20px;
-    border-radius: 10px;
-    margin-top: 10px;
+    height: 25px;
+    border-radius: 12px;
+    margin-top: 15px;
 }
+
 
 .progress-fill {
-    background-color: green;
+    background-color: #4CAF50;
     height: 100%;
-    width: 70%;
-    border-radius: 10px;
+    border-radius: 12px;
+    transition: width 0.3s ease;
 }
 
-.avisos {
-    background-color: #E2A89C;
-    border-radius: 5px;
-    padding: 20px;
-    width: 45%;
+
+.progress-percent {
+    color: #555;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
-.avisos h3 {
-    color: white;
-    display: flex;
-    align-items: center;
-}
 
 .avisos h3 img {
-    margin-right: 10px;
+    margin-right: 12px;
+    width: 24px;
+    height: auto;
 }
+
 
 .avisos p {
-    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    background-color: rgba(250, 236, 226, 0.7);
+    padding: 10px;
+    border-radius: 8px;
 }
 
-/* ... (seu CSS existente) ... */
 
 .task-modal {
     display: none;
@@ -140,6 +190,7 @@ main {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+
 .task-modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -148,6 +199,7 @@ main {
     width: 80%;
 }
 
+
 .close-modal {
     color: #aaa;
     float: right;
@@ -155,6 +207,7 @@ main {
     font-weight: bold;
     cursor: pointer;
 }
+
 
 .add-task {
     background-color: #e0e0e0;
@@ -165,8 +218,63 @@ main {
     cursor: pointer;
 }
 
+
 @media (max-width: 768px) {
-    .kanban, .progress, .avisos {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .croqui {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+
+    main {
         width: 100%;
     }
+
+
+    .kanban, .progress-avisos-container, .progress, .avisos {
+        width: 100%;
+    }
+}
+
+
+/* Estilos para o ranking */
+.ranking {
+    background-color: #FAECE2;
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
+.ranking h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+
+#ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+#ranking-table th, #ranking-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+#ranking-table th {
+    background-color: #E2A89C;
+    color: white;
 }

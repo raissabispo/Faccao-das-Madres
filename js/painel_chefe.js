@@ -1,18 +1,17 @@
-// Atualizar a data
 document.getElementById('date').textContent = new Date().toLocaleDateString();
 
-// Animação do logo
+
 document.getElementById('logo-img').addEventListener('mouseover', function() {
     this.style.transform = 'scale(1.1)';
 });
+
 
 document.getElementById('logo-img').addEventListener('mouseout', function() {
     this.style.transform = 'scale(1)';
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // ... (seu código JavaScript existente) ...
 
+document.addEventListener('DOMContentLoaded', function() {
     const taskModal = document.getElementById('task-modal');
     const taskDetails = document.querySelector('.task-details');
     const taskForm = document.getElementById('task-form');
@@ -20,119 +19,186 @@ document.addEventListener('DOMContentLoaded', function() {
     const deleteTaskButton = document.querySelector('.delete-task');
     let currentTask = null;
 
-    // Abrir modal ao clicar em um card
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', function() {
-            const taskId = this.dataset.taskId;
-            currentTask = this;
-            taskDetails.textContent = `Detalhes da Tarefa ${taskId}`;
-            taskModal.style.display = 'block';
+
+    function createTaskCard(taskData, taskId) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.draggable = true;
+        card.dataset.taskId = taskId;
+        card.dataset.quantidade = taskData.quantidade;
+        card.dataset.costureira = taskData.costureira;
+        card.dataset.entrega = taskData.entrega;
+        card.innerHTML = `
+            Costureira: ${taskData.costureira}<br>
+            Prazo de entrega: ${taskData.entrega}<br>
+            Quant. de peças: ${taskData.quantidade}
+        `;
+        return card;
+    }
+
+
+    function openTaskModal(task) {
+        currentTask = task;
+        if (task) {
+            taskDetails.textContent = `Detalhes da Tarefa ${task.dataset.taskId}`;
+            document.getElementById('quantidade').value = task.dataset.quantidade;
+            document.getElementById('costureira').value = task.dataset.costureira;
+            document.getElementById('entrega').value = task.dataset.entrega;
+            deleteTaskButton.style.display = 'block';
+        } else {
+            taskDetails.textContent = '';
+            document.getElementById('quantidade').value = '';
+            document.getElementById('costureira').value = '';
+            document.getElementById('entrega').value = '';
+            deleteTaskButton.style.display = 'none';
+        }
+        taskModal.style.display = 'block';
+    }
+
+
+    document.querySelectorAll('.column').forEach(column => {
+        column.addEventListener('click', function(event) {
+            if (event.target.classList.contains('card')) {
+                openTaskModal(event.target);
+            }
         });
     });
 
-    // Abrir modal para adicionar tarefa (somente na coluna "Pendente")
+
     document.querySelector('[data-status="pendente"] .add-task').addEventListener('click', function() {
-        currentTask = null;
-        taskDetails.textContent = '';
-        taskModal.style.display = 'block';
+        openTaskModal(null);
     });
 
-    // Fechar modal
+
     closeModal.addEventListener('click', function() {
         taskModal.style.display = 'none';
     });
 
-    // Salvar informações da tarefa
+
     taskForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const quantidade = document.getElementById('quantidade').value;
         const costureira = document.getElementById('costureira').value;
         const entrega = document.getElementById('entrega').value;
 
+
         if (currentTask) {
-            currentTask.textContent = `Tarefa ${currentTask.dataset.taskId} - ${quantidade} peças`;
+            currentTask.dataset.quantidade = quantidade;
+            currentTask.dataset.costureira = costureira;
+            currentTask.dataset.entrega = entrega;
+            currentTask.innerHTML = `
+                Costureira: ${costureira}<br>
+                Data: ${entrega}<br>
+                Quant. de peças: ${quantidade}
+            `;
         } else {
-            const newTask = document.createElement('div');
-            newTask.classList.add('card');
-            newTask.textContent = `Nova Tarefa - ${quantidade} peças`;
+            const taskId = Date.now();
+            const newTask = createTaskCard({ quantidade, costureira, entrega }, taskId);
             document.querySelector('[data-status="pendente"]').insertBefore(newTask, document.querySelector('[data-status="pendente"] .add-task'));
+            addDragEventListeners(newTask);
         }
+
 
         taskModal.style.display = 'none';
         taskForm.reset();
+        updateProgressBar();
     });
 
-    // Excluir tarefa
+
     deleteTaskButton.addEventListener('click', function() {
         if (currentTask) {
             currentTask.remove();
             taskModal.style.display = 'none';
+            updateProgressBar();
         }
     });
 
-    // Permitir arrastar e soltar cards
+
     let draggedCard = null;
 
-    document.querySelectorAll('.card').forEach(card => {
+
+    function addDragEventListeners(card) {
         card.addEventListener('dragstart', function() {
             draggedCard = this;
         });
-    });
+    }
+
+
+    document.querySelectorAll('.card').forEach(addDragEventListeners);
+
 
     document.querySelectorAll('.column').forEach(column => {
         column.addEventListener('dragover', function(event) {
             event.preventDefault();
         });
 
+
         column.addEventListener('drop', function() {
             if (draggedCard) {
-                this.appendChild(draggedCard);
+                this.insertBefore(draggedCard, this.querySelector('.add-task'));
                 draggedCard = null;
+                updateProgressBar();
+                if (this.dataset.status === 'finalizada') {
+                    updateRanking(); // Atualiza o ranking ao mover para "Finalizada"
+                }
             }
         });
     });
-      //deixar a barra interativa
+
+
     function updateProgressBar() {
         const totalCards = document.querySelectorAll('.card').length;
         const finishedCards = document.querySelectorAll('[data-status="finalizada"] .card').length;
         const percentage = totalCards > 0 ? (finishedCards / totalCards) * 100 : 0;
 
+
         document.querySelector('.progress-fill').style.width = percentage + '%';
         document.querySelector('.progress-percent').textContent = Math.round(percentage) + '%';
     }
 
-    // Atualizar barra de progresso ao carregar a página
+
     updateProgressBar();
 
-    // Atualizar barra de progresso ao mover cards
-    document.querySelectorAll('.column').forEach(column => {
-        column.addEventListener('drop', function() {
-            updateProgressBar();
+
+    // Lógica do Ranking
+    function updateRanking() {
+        const finishedTasks = document.querySelectorAll('[data-status="finalizada"] .card');
+        const costureiras = {};
+
+
+        finishedTasks.forEach(task => {
+            const costureira = task.dataset.costureira;
+            const quantidade = parseInt(task.dataset.quantidade);
+
+
+            if (costureiras[costureira]) {
+                costureiras[costureira] += quantidade;
+            } else {
+                costureiras[costureira] = quantidade;
+            }
         });
-    });
 
-    // Atualizar barra de progresso ao excluir tarefa
-    deleteTaskButton.addEventListener('click', function() {
-        if (currentTask) {
-            currentTask.remove();
-            taskModal.style.display = 'none';
-            updateProgressBar();
-        }
-    });
 
-    // Atualizar barra de progresso ao salvar tarefa
-    taskForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        // ... (seu código de salvar tarefa) ...
-        updateProgressBar();
-    });
+        const rankingArray = Object.entries(costureiras).map(([nome, pecas]) => ({ nome, pecas }));
+        rankingArray.sort((a, b) => b.pecas - a.pecas);
+
+
+        const rankingTableBody = document.querySelector('#ranking-table tbody');
+        rankingTableBody.innerHTML = '';
+
+
+        rankingArray.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}º</td>
+                <td>${item.nome}</td>
+                <td>${item.pecas}</td>
+            `;
+            rankingTableBody.appendChild(row);
+        });
+    }
+
+
+    updateRanking(); // Carrega o ranking inicial
 });
 
-// Atualizar a barra de progresso (exemplo)
-function updateProgress(percent) {
-    document.querySelector('.progress-fill').style.width = percent + '%';
-    document.querySelector('.progress-percent').textContent = percent + '%';
-}
-
-// Chame a função updateProgress com a porcentagem desejada
-updateProgress(70);

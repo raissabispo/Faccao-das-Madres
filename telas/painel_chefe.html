@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="/imagens/logo.png" alt="Logo" id="logo-img">
+            <a href="telaInicial.html"><img src="/imagens/logo.png" alt="Logo" id="logo-img"></a>
         </div>
         <div class="welcome">
             <h2>Bem-vinda de volta, Maria.</h2>
@@ -21,37 +21,54 @@
             <a href="relatorio.html"><img src="/imagens/relatorio.png" alt="Relatório"></a>
         </div>
     </header>
-    <main>
-        <div class="kanban">
-            <div class="column" data-status="pendente">
-                <h3>Pendente</h3>
-                <div class="card" data-task-id="1" draggable="true">Tarefa 1</div>
-                <div class="card" data-task-id="2" draggable="true">Tarefa 2</div>
-                <div class="add-task">+</div>
-            </div>
-            <div class="column" data-status="em-andamento">
-                <h3>Em Andamento</h3>
-                <div class="card" data-task-id="3" draggable="true">Tarefa 3</div>
-            </div>
-            <div class="column" data-status="finalizada">
-                <h3>Finalizada</h3>
-                <div class="card" data-task-id="4" draggable="true">Tarefa 4</div>
-                <div class="card" data-task-id="5" draggable="true">Tarefa 5</div>
-            </div>
+    <div class="container">
+        <div class="croqui left-croqui">
+            <img src="/imagens/croqui.jpeg" alt="Croqui Esquerda">
         </div>
-        <div class="progress">
-            <h3>Progresso do Dia:</h3>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
+        <main>
+            <div class="kanban">
+                <div class="column" data-status="pendente">
+                    <h3>Pendente</h3>
+                    <div class="add-task">+</div>
+                </div>
+                <div class="column" data-status="em-andamento">
+                    <h3>Em Andamento</h3>
+                </div>
+                <div class="column" data-status="finalizada">
+                    <h3>Finalizada</h3>
+                </div>
             </div>
-            <p class="progress-percent">70%</p>
+            <div class="progress">
+                <h3>Progresso do Dia:</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="progress-percent">0%</p>
+            </div>
+            <div class="avisos">
+                <h3><img src="/imagens/avisos.png" alt="Avisos">Avisos:</h3>
+                <p>Falta x dias para o prazo das calças da loja xxx acabar!!</p>
+                <p>Mensagem da costureira: Bom dia, Maria! Verifique se...</p>
+            </div>
+            <div class="ranking">
+                <h3>Ranking de Produção</h3>
+                <table id="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome da Costureira</th>
+                            <th>Peças Produzidas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <div class="croqui right-croqui">
+            <img src="/imagens/croqui.jpeg" alt="Croqui Direita">
         </div>
-        <div class="avisos">
-            <h3><img src="/imagens/avisos.png" alt="Avisos">Avisos:</h3>
-            <p>Falta x dias para o prazo das calças da loja xxx acabar!!</p>
-            <p>Mensagem da costureira: Bom dia, Maria! Verifique se...</p>
-        </div>
-    </main>
+    </div>
     <div class="task-modal" id="task-modal">
         <div class="task-modal-content">
             <span class="close-modal">&times;</span>
@@ -65,7 +82,7 @@
                 <input type="date" id="entrega" name="entrega">
                 <button type="submit">Salvar</button>
             </form>
-            <button class="delete-task">Excluir Tarefa</button>
+            <button class="delete-task" style="display: none;">Excluir Tarefa</button>
         </div>
     </div>
     <script src="/js/painel_chefe.js"></script>
