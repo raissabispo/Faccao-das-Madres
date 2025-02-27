@@ -15,10 +15,16 @@ function enviar(event) {
         alert('Por favor, insira um e-mail válido!');
         return false;
     }
+
+
   
-    alert('Cadastro realizado com sucesso!'); 
-    window.location.href = "/telas/telaInicial.html";
-    
+     if (event.submitter.id === 'btnChefe') {
+        alert('Cadastro realizado com sucesso!'); 
+        window.location.href = "/telas/painel_chefe.html";
+    } else if (event.submitter.id === 'btnCostureira') {
+        alert('Cadastro realizado com sucesso!'); 
+        window.location.href = "/telas/telaInicial.html";
+    }
 
     return true;
 }

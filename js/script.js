@@ -16,12 +16,17 @@ function enviar(event) {
         return false;
     }
   
-    alert('Login realizado com sucesso!'); 
-     window.location.href = "/telas/telaInicial.html";
-    
+    if (event.submitter.id === 'btnChefe') {
+        alert('Login realizado com sucesso!'); 
+        window.location.href = "/telas/painel_chefe.html";
+    } else if (event.submitter.id === 'btnCostureira') {
+        alert('Login realizado com sucesso!'); 
+        window.location.href = "/telas/telaInicial.html";
+    }
 
     return true;
 }
+
 
 document.getElementById('senhaMostrar').addEventListener('change', function () {
     let senhaInput = document.getElementById('senha');

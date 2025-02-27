@@ -66,11 +66,17 @@ body{
     margin-right: 180px;
 }
 
+label{
+    margin-right: 250px;
+    margin-bottom: 7px;
+}
+
 .forms {
     margin: 45px;
     display: flex;
     flex-direction: column;
     font-weight: 600;
+    align-items:center;
 }
 
 .titulo-form {
@@ -97,6 +103,14 @@ input[type="text"], input[type="password"] {
     border-radius: 5px;
 }
 
+.botoes-opcoes {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
+    width: 100%;
+    max-width: 400px; 
+}
+
 button {
     padding: 8px 20px;
     border: none;
@@ -105,9 +119,12 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 20px;
-    margin: 20px
+    font-size: 17px;
+    margin: 10px; 
+    flex: 1; 
+    min-width: 190px; 
 }
+
 
 
 .senha-opcoes {
