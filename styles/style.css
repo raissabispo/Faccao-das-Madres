@@ -157,22 +157,43 @@ button {
     text-align: center;
     text-decoration: underline;
 }
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column; 
-        justify-content: center;
-        height: 700px;
-        padding: 10px ;
+@media (max-width: 768px) {
+        .container {
+            flex-direction: column; 
+            justify-content: center;
+            height: 700px;
+            padding: 10px ;
+        }
+    
+        .home-login {
+            display:none;
+        }
+    
+        .login-form {
+            max-width: 300px;
+            max-height: 900px;
+            margin-right: 0;
+        }
+        
+    h1{
+        font-size: 20px;
+    }
+     .forms{
+        font-size: 15px
+     }
+
+     .botoes-opcoes {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
     }
 
-    .home-login {
-        display:none;
-    }
-
-    .login-form {
-        max-width: 300px;
-        max-height: 900px;
-        margin-right: 0;
-    }
+    button {
+        width: 100%;
+        max-width: 150px; 
+        font-size: 14px;
+        padding: 10px;
 }
 
+}
